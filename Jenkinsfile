@@ -7,8 +7,10 @@ pipeline {
             }
         }
         stage('View') {
-            dir('views') {
-                sh 'ls -la'
+            steps {
+                dir('views') {
+                    sh 'ls -la'
+                }
             }
         }
         stage('ENd') {
