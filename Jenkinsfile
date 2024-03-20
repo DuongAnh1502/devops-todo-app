@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                sh 'https://github.com/DuongAnh1502/devops-todo-app.git'
+                sh 'git clone https://github.com/DuongAnh1502/devops-todo-app.git'
             }
         }
         stage('Print') {
