@@ -6,13 +6,8 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('Clone') {
-            steps {
-                sh 'git clone https://github.com/DuongAnh1502/devops-todo-app.git'
-            }
-        }
-        stage('Print') {
-            steps {
+        stage('View') {
+            dir('views') {
                 sh 'ls -la'
             }
         }
