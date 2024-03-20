@@ -6,6 +6,11 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage('View') {
+            steps {
+                sh 'ls -la'
+            }
+        }
         stage('ENd') {
             steps {
                 echo 'End World'
