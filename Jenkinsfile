@@ -15,14 +15,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t vitnguyen/mgm-training-todo-app:0.0.3 .'
+                sh 'docker build -t vitnguyen/mgm-training-todo-app:0.0.2 .'
             }
         }
         stage("Docker login and push docker image") {
             steps {
                 withBuildConfiguration {
                     sh 'docker login -u "$USER" -p "$PASSWD"'
-                    sh 'docker push vitnguyen/mgm-training-todo-app:0.0.3'        		
+                    sh 'docker push vitnguyen/mgm-training-todo-app:0.0.2'        		
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
                  withBuildConfiguration {
                      sshagent(credentials: [SSH_ID_REF]) {
                          sh '''
-                            docker run -d --rm --name y-todo-app -p 8001:8000 vitnguyen/mgm-training-todo-app:0.0.3
+                            docker run -d --rm --name da-todo -p 8001:8000 vitnguyen/mgm-training-todo-app:0.0.2
                             docker ps
                          '''
                      }
